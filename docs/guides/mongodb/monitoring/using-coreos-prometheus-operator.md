@@ -29,7 +29,7 @@ CoreOS [prometheus-operator](https://github.com/coreos/prometheus-operator) prov
   namespace/monitoring created
 
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   ```
 
 - We need a CoreOS [prometheus-operator](https://github.com/coreos/prometheus-operator) instance running. If you don't already have a running instance, deploy one following the docs from [here](https://github.com/appscode/third-party-tools/blob/master/monitoring/prometheus/coreos-operator/README.md).
@@ -95,7 +95,7 @@ metadata:
   name: coreos-prom-mgo
   namespace: demo
 spec:
-  version: "3.4-v1"
+  version: "3.4-v2"
   terminationPolicy: WipeOut
   storage:
     storageClassName: "standard"
@@ -125,7 +125,7 @@ Here,
 Let's create the MongoDB object that we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/monitoring/coreos-prom-mgo.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/monitoring/coreos-prom-mgo.yaml
 mongodb.kubedb.com/coreos-prom-mgo created
 ```
 
@@ -134,7 +134,7 @@ Now, wait for the database to go into `Running` state.
 ```console
 $ kubectl get mg -n demo coreos-prom-mgo
 NAME              VERSION   STATUS    AGE
-coreos-prom-mgo   3.4-v1    Running   24s
+coreos-prom-mgo   3.4-v2    Running   24s
 ```
 
 KubeDB will create a separate stats service with name `{MongoDB crd name}-stats` for monitoring purpose.

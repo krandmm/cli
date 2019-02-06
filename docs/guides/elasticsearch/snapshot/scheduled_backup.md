@@ -25,7 +25,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -78,7 +78,7 @@ spec:
     cronExpression: "@every 6h"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 Here,
@@ -90,7 +90,7 @@ Here,
 > Note: Secret object must be in the same namespace as Elasticsearch, `scheduled-es`, in this case.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/snapshot/scheduled-es.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/snapshot/scheduled-es.yaml
 elasticsearch.kubedb.com/scheduled-es created
 ```
 
@@ -114,7 +114,7 @@ spec:
 #  backupSchedule:
 #    cronExpression: '@every 6h'
 #    gcs:
-#      bucket: kubedb
+#      bucket: kubedb-qa
 #    storageSecretName: gcs-secret
 ```
 
@@ -130,7 +130,7 @@ $ kubectl edit es scheduled-es -n demo
     cronExpression: "@every 6h"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 Once the `spec.backupSchedule` is added, KubeDB operator creates a Snapshot object immediately and registers to create a new Snapshot object on each tick of the cron expression.

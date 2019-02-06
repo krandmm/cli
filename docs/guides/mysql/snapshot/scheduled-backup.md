@@ -26,7 +26,7 @@ This tutorial will show you how to use KubeDB to take scheduled snapshot of a My
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl get ns
   NAME          STATUS    AGE
@@ -90,11 +90,11 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: my-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/snapshot/demo-4.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/snapshot/demo-4.yaml
 mysql.kubedb.com/mysql-scheduled created
 ```
 
@@ -106,7 +106,7 @@ spec:
   backupSchedule:
     cronExpression: '@every 1m'
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     storageSecretName: my-snap-secret
 ```
 
@@ -143,7 +143,7 @@ spec:
 #  backupSchedule:
 #    cronExpression: '@every 1m'
 #    gcs:
-#      bucket: kubedb
+#      bucket: kubedb-qa
 #    storageSecretName: my-snap-secret
   databaseSecret:
     secretName: mysql-scheduled-auth

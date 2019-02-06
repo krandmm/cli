@@ -25,7 +25,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -144,7 +144,7 @@ To configure this backend, following parameters are available:
 Now create this Postgres object with Continuous Archiving support.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/snapshot/wal-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/snapshot/wal-postgres.yaml
 postgres "wal-postgres" created
 ```
 

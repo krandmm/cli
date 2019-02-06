@@ -25,7 +25,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -39,7 +39,7 @@ demo    Active  5s
 We need an Elasticsearch object in `Running` phase to perform backup operation. If you do not already have an Elasticsearch instance running, create one first.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/quickstart/infant-elasticsearch.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/quickstart/infant-elasticsearch.yaml
 elasticsearch "infant-elasticsearch" created
 ```
 
@@ -119,7 +119,7 @@ spec:
   databaseName: infant-elasticsearch
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 Here,
@@ -189,7 +189,7 @@ To learn how to configure other storage destinations for snapshot data, please v
 Now, create the Snapshot object.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/snapshot/instant-snapshot.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/snapshot/instant-snapshot.yaml
 snapshot.kubedb.com/instant-snapshot created
 ```
 

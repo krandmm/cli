@@ -27,7 +27,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -120,7 +120,7 @@ metadata:
 Now, create an Elasticsearch crd with topology specified,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/custom-config/es-custom-with-topology.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/custom-config/es-custom-with-topology.yaml
 elasticsearch.kubedb.com/custom-elasticsearch created
 ```
 

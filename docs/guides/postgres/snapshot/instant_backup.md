@@ -27,7 +27,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -58,7 +58,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 Here,
@@ -126,7 +126,7 @@ To learn how to configure other storage destinations for snapshot data, please v
 Now, let's create a Snapshot object.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/snapshot/instant-snapshot.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/snapshot/instant-snapshot.yaml
 snapshot.kubedb.com/instant-snapshot created
 ```
 

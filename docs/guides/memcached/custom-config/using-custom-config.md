@@ -25,7 +25,7 @@ KubeDB supports providing custom configuration for Memcached. This tutorial will
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl get ns demo
   NAME    STATUS  AGE
@@ -119,7 +119,7 @@ metadata:
 Now, create Memcached crd specifying `spec.configSource` field.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/memcached/custom-config/mc-custom.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/memcached/custom-config/mc-custom.yaml
 memcached.kubedb.com/custom-memcached created
 ```
 

@@ -29,7 +29,7 @@ CoreOS [prometheus-operator](https://github.com/coreos/prometheus-operator) prov
   namespace/monitoring created
 
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   ```
 
 - We need a CoreOS [prometheus-operator](https://github.com/coreos/prometheus-operator) instance running. If you don't already have a running instance, deploy one following the docs from [here](https://github.com/appscode/third-party-tools/blob/master/monitoring/prometheus/coreos-operator/README.md).
@@ -125,7 +125,7 @@ Here,
 Let's create the MySQL object that we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/monitoring/coreos-prom-mysql.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/monitoring/coreos-prom-mysql.yaml
 mysql.kubedb.com/coreos-prom-mysql created
 ```
 

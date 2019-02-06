@@ -25,7 +25,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -57,7 +57,7 @@ shared_buffers=256MB
 Now, create a configMap with this configuration file.
 
 ```console
- $ kubectl create configmap -n demo pg-custom-config --from-file=https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/custom-config/user.conf 
+ $ kubectl create configmap -n demo pg-custom-config --from-file=https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/custom-config/user.conf 
 configmap/pg-custom-config created
 ```
 
@@ -81,7 +81,7 @@ metadata:
 Now, create Postgres crd specifying `spec.configSource` field.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/custom-config/pg-custom-config.yaml 
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/custom-config/pg-custom-config.yaml 
 postgres.kubedb.com/custom-postgres created
 ```
 

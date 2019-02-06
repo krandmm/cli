@@ -48,7 +48,7 @@ spec:
     cronExpression: "@every 6h"
     storageSecretName: ms-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
       prefix: demo
   monitor:
     agent: prometheus.io/coreos-operator

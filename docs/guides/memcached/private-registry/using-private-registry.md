@@ -65,7 +65,7 @@ KubeDB operator supports using private Docker registry. This tutorial will show 
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
    ```
 
 ## Create ImagePullSecret
@@ -121,7 +121,7 @@ spec:
 Now run the command to deploy this `Memcached` object:
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/memcached/private-registry/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/memcached/private-registry/demo-2.yaml
 memcached.kubedb.com/memcd-pvt-reg created
 ```
 

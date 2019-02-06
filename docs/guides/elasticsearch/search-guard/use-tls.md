@@ -27,7 +27,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -63,7 +63,7 @@ spec:
 Let's create the Elasticsearch object we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/search-guard/ssl-elasticsearch.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/search-guard/ssl-elasticsearch.yaml
 elasticsearch.kubedb.com/ssl-elasticsearch created
 ```
 

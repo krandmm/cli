@@ -95,7 +95,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/configuration/mysql-misc-config.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/configuration/mysql-misc-config.yaml
 mysql.kubedb.com/mysql-misc-config created
 ```
 
@@ -135,7 +135,7 @@ Now, we will check if the database has started with the custom configuration we 
 First, deploy [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/) to connect with the MySQL database we have just created.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-1.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-1.yaml
 deployment.extensions/myadmin created
 service/myadmin created
 ```
@@ -185,7 +185,7 @@ spec:
   databaseName: mysql-misc-config
   storageSecretName: my-snap-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
   podTemplate:
     spec:
       args:
@@ -194,7 +194,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/configuration/snapshot-misc-conf.yaml 
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/configuration/snapshot-misc-conf.yaml 
 snapshot.kubedb.com/snap-mysql-config created
 
 
@@ -220,7 +220,7 @@ spec:
     cronExpression: '@every 1m'
     storageSecretName: my-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     podTemplate:
       controller: {}
       metadata: {}

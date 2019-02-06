@@ -32,7 +32,7 @@ This tutorial will show you how to monitor Elasticsearch database using builtin 
   namespace/monitoring created
 
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   ```
 
 > Note: YAML files used in this tutorial are stored in [docs/examples/elasticsearch](https://github.com/kubedb/cli/tree/master/docs/examples/elasticsearch) folder in GitHub repository [kubedb/cli](https://github.com/kubedb/cli).
@@ -68,7 +68,7 @@ Here,
 Let's create the Elasticsearch crd we have shown above.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/monitoring/builtin-prom-es.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/monitoring/builtin-prom-es.yaml
 elasticsearch.kubedb.com/builtin-prom-es created
 ```
 
@@ -274,7 +274,7 @@ data:
 Let's create above `ConfigMap`,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
 configmap/prometheus-config created
 ```
 

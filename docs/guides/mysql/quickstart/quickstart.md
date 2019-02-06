@@ -39,9 +39,9 @@ This tutorial will show you how to use KubeDB to run a MySQL database.
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
-  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-1.yaml
+  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-1.yaml
   deployment.extensions/myadmin created
   service/myadmin created
   
@@ -109,7 +109,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-2.yaml
 mysql.kubedb.com/mysql-quickstart created
 ```
 
@@ -278,7 +278,7 @@ $ kubedb delete my mysql-quickstart -n demo
 Error from server (BadRequest): admission webhook "mysql.validators.kubedb.com" denied the request: mysql "mysql-quickstart" can't be paused. To delete, change spec.terminationPolicy
 ```
 
-Now, run `kubedb edit my mysql-quickstart -n demo` to set `spec.terminationPolicy` to `Resume` (which creates `domantdatabase` when mysql is deleted and keeps PVC, snapshots, Secrets intact) or remove this field (which default to `Resume`). Then you will be able to delete/pause the database. 
+Now, run `kubedb edit my mysql-quickstart -n demo` to set `spec.terminationPolicy` to `Pause` (which creates `domantdatabase` when mysql is deleted and keeps PVC, snapshots, Secrets intact) or remove this field (which default to `Pause`). Then you will be able to delete/pause the database. 
 
 Learn details of all `TerminationPolicy` [here](docs/concepts/databases/mysql.md#specterminationpolicy)
 
@@ -366,7 +366,7 @@ In this tutorial, the dormant database can be resumed by creating original `MySQ
 The below command will resume the DormantDatabase `mysql-quickstart` that was created before.
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-2.yaml
 mysql "mysql-quickstart" created
 ```
 

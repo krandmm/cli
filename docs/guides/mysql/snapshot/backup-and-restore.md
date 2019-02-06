@@ -35,13 +35,13 @@ This tutorial will show you how to take snapshots of a KubeDB managed MySQL data
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl get ns
   NAME          STATUS    AGE
   demo          Active    1m
   
-  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/snapshot/demo-1.yaml
+  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/snapshot/demo-1.yaml
   mysql.kubedb.com/mysql-infant created
   ```
 
@@ -96,11 +96,11 @@ spec:
   databaseName: mysql-infant
   storageSecretName: my-snap-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/snapshot/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/snapshot/demo-2.yaml
 snapshot.kubedb.com/snap-mysql-infant created
 
 $ kubedb get snap -n demo
@@ -128,7 +128,7 @@ metadata:
 spec:
   databaseName: mysql-infant
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
   storageSecretName: my-snap-secret
 status:
   completionTime: 2018-09-27T06:18:41Z
@@ -248,7 +248,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/snapshot/demo-3.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/snapshot/demo-3.yaml
 mysql.kubedb.com/mysql-recovered created
 ```
 

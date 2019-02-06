@@ -28,11 +28,7 @@ This tutorial will show you how to use KubeDB to take scheduled snapshot of a Mo
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
-
-  $ kubectl get ns
-  NAME          STATUS    AGE
-  demo          Active    1m
+  namespace/demo created
   ```
 
 > Note: The yaml files used in this tutorial are stored in [docs/examples/mongodb](https://github.com/kubedb/cli/tree/master/docs/examples/mongodb) folder in GitHub repository [kubedb/cli](https://github.com/kubedb/cli).
@@ -83,7 +79,7 @@ metadata:
   name: mgo-scheduled
   namespace: demo
 spec:
-  version: "3.4-v1"
+  version: "3.4-v2"
   storage:
     storageClassName: "standard"
     accessModes:
@@ -95,11 +91,11 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: mg-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-4.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/snapshot/demo-4.yaml
 mongodb.kubedb.com/mgo-scheduled created
 ```
 
@@ -111,7 +107,7 @@ spec:
   backupSchedule:
     cronExpression: '@every 1m'
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     storageSecretName: mg-snap-secret
 ```
 
@@ -148,7 +144,7 @@ spec:
 # backupSchedule:
 #   cronExpression: '@every 1m'
 #   gcs:
-#     bucket: kubedb
+#     bucket: kubedb-qa
 #   storageSecretName: mg-snap-secret
   databaseSecret:
     secretName: mgo-scheduled-auth
@@ -159,7 +155,7 @@ spec:
       requests:
         storage: 1Gi
     storageClassName: standard
-  version: 3.4
+  version: 3.4-v2
 status:
   creationTime: 2018-02-02T10:46:18Z
   phase: Running

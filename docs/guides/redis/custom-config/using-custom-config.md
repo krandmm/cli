@@ -25,7 +25,7 @@ KubeDB supports providing custom configuration for Redis. This tutorial will sho
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl get ns demo
   NAME    STATUS  AGE
@@ -84,7 +84,7 @@ metadata:
 Now, create Redis crd specifying `spec.configSource` field.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/custom-config/redis-custom.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/custom-config/redis-custom.yaml
 redis.kubedb.com "custom-redis" created
 ```
 

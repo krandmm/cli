@@ -55,7 +55,7 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb-dev
+      bucket: kubedb-qa
 ```
 
 Now create secret and deploy database.
@@ -380,7 +380,7 @@ spec:
   backupSchedule:
     cronExpression: '@every 5m'
     gcs:
-      bucket: kubedb-dev
+      bucket: kubedb-qa
     podTemplate:
       controller: {}
       metadata: {}

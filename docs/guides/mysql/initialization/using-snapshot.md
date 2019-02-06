@@ -53,7 +53,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/Initialization/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/Initialization/demo-2.yaml
 mysql.kubedb.com/mysql-init-snapshot created
 ```
 

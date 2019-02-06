@@ -37,7 +37,7 @@ This tutorial will show you how to use KubeDB to run a Redis server.
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
 
   $ kubectl get ns
   NAME          STATUS    AGE
@@ -84,7 +84,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/quickstart/demo-1.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/quickstart/demo-1.yaml
 redis.kubedb.com/redis-quickstart created
 ```
 
@@ -241,7 +241,7 @@ $ kubedb delete rd redis-quickstart -n demo
 Error from server (BadRequest): admission webhook "redis.validators.kubedb.com" denied the request: redis "redis-quickstart" can't be paused. To delete, change spec.terminationPolicy
 ```
 
-Now, run `kubedb edit rd redis-quickstart -n demo` to set `spec.terminationPolicy` to `Resume` (which creates `domantdatabase` when redis is deleted and keeps PVCs intact) or remove this field (which default to `Resume`). Then you will be able to delete/pause the database. 
+Now, run `kubedb edit rd redis-quickstart -n demo` to set `spec.terminationPolicy` to `Pause` (which creates `domantdatabase` when redis is deleted and keeps PVCs intact) or remove this field (which default to `Pause`). Then you will be able to delete/pause the database. 
 
 Learn details of all `TerminationPolicy` [here](/docs/concepts/databases/redis.md#specterminationpolicy)
 
@@ -328,7 +328,7 @@ In this tutorial, the dormant database can be resumed by creating original `Redi
 The below command will resume the DormantDatabase `redis-quickstart`.
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/quickstart/demo-1.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/quickstart/demo-1.yaml
 redis.kubedb.com/redis-quickstart created
 ```
 

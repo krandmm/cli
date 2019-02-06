@@ -34,7 +34,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -55,7 +55,6 @@ metadata:
   namespace: demo
 spec:
   version: "10.2"
-  doNotPause: true
   storageType: Durable
   storage:
     storageClassName: "standard"
@@ -69,7 +68,7 @@ spec:
 Create above Postgres object with following command
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/quickstart/quick-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/quick-postgres.yaml
 postgres "quick-postgres" created
 ```
 

@@ -17,4 +17,4 @@ spec:
     cronExpression: "@every 6h"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa

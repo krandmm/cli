@@ -29,7 +29,7 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME    STATUS  AGE
@@ -47,7 +47,7 @@ This tutorial will also use a pgAdmin to connect and test PostgreSQL database, o
 Run the following command to install pgAdmin,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/quickstart/pgadmin.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/pgadmin.yaml
 deployment.apps/pgadmin created
 service/pgadmin created
 
@@ -137,7 +137,7 @@ Here,
 Let's create Postgres crd,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/quickstart/quick-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/quick-postgres.yaml
 postgres "quick-postgres" created
 ```
 
@@ -415,7 +415,7 @@ In this tutorial, the DormantDatabase `quick-postgres` can be resumed by creatin
 Let's create the original Postgres object,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/kubectl apply -f ./quickstart/quick-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/kubectl apply -f ./quickstart/quick-postgres.yaml
 postgres.kubedb.com/quick-postgres created
 ```
 
@@ -424,7 +424,7 @@ This will resume the previous database. All data that was inserted in previous d
 When the database is resumed, respective DormantDatabase object will be removed. Verify that the DormantDatabase object has been removed,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/quickstart/quick-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/quick-postgres.yaml
 postgres "quick-postgres" created
 ```
 
