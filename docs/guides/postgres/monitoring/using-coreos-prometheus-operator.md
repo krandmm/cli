@@ -94,7 +94,7 @@ metadata:
   name: coreos-prom-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   terminationPolicy: WipeOut
   storage:
     storageClassName: "standard"
@@ -133,7 +133,7 @@ Now, wait for the database to go into `Running` state.
 ```console
 $ kubectl get pg -n demo coreos-prom-postgres
 NAME                   VERSION   STATUS    AGE
-coreos-prom-postgres   9.6-v1    Running   38s
+coreos-prom-postgres   9.6-v2    Running   38s
 ```
 
 KubeDB will create a separate stats service with name `{PostgreSQL crd name}-stats` for monitoring purpose.

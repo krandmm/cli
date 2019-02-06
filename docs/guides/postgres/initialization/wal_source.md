@@ -109,7 +109,7 @@ metadata:
   name: replay-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 2
   databaseSecret:
     secretName: wal-postgres-auth

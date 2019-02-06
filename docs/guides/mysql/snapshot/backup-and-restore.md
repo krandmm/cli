@@ -231,7 +231,7 @@ metadata:
   name: mysql-recovered
   namespace: demo
 spec:
-  version: "8.0-v1"
+  version: "8.0-v2"
   databaseSecret:
     secretName: mysql-infant-auth
   storage:
@@ -261,13 +261,13 @@ Now, wait several seconds. KubeDB operator will create a new StatefulSet. Then K
 ```console
 $ kubedb get my -n demo
 NAME              VERSION   STATUS         AGE
-mysql-infant      8.0-v1    Running        27m
-mysql-recovered   8.0-v1    Initializing   5m
+mysql-infant      8.0-v2    Running        27m
+mysql-recovered   8.0-v2    Initializing   5m
 
 $ kubedb get my -n demo
 NAME              VERSION   STATUS    AGE
-mysql-infant      8.0-v1    Running   31m
-mysql-recovered   8.0-v1    Running   9m
+mysql-infant      8.0-v2    Running   31m
+mysql-recovered   8.0-v2    Running   9m
 
 $ kubedb describe my -n demo mysql-recovered
 Name:               mysql-recovered

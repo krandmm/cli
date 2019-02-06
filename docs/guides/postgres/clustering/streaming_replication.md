@@ -47,7 +47,7 @@ metadata:
   name: ha-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 3
   storageType: Durable
   storage:
@@ -235,7 +235,7 @@ metadata:
   name: hot-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 3
   standbyMode: Hot
   storageType: Durable

@@ -84,7 +84,7 @@ metadata:
   name: mysql-init-script
   namespace: demo
 spec:
-  version: "8.0-v1"
+  version: "8.0-v2"
   storage:
     storageClassName: "standard"
     accessModes:
@@ -232,7 +232,7 @@ spec:
   terminationPolicy: Pause
   updateStrategy:
     type: RollingUpdate
-  version: 8.0-v1
+  version: 8.0-v2
 status:
   observedGeneration: 2$4213139756412538772
   phase: Running

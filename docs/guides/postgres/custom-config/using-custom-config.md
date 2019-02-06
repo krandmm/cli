@@ -94,7 +94,7 @@ metadata:
   name: custom-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   configSource:
     configMap:
       name: pg-custom-config

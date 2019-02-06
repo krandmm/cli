@@ -48,8 +48,8 @@ For Postgres, push the following images to your private registry.
 $ export DOCKER_REGISTRY=<your-registry>
 
 $ docker pull kubedb/operator:0.9.0 ; docker tag kubedb/operator:0.9.0 $DOCKER_REGISTRY/operator:0.9.0 ; docker push $DOCKER_REGISTRY/operator:0.9.0
-$ docker pull kubedb/postgres:9.6-v1 ; docker tag kubedb/postgres:9.6-v1 $DOCKER_REGISTRY/postgres:9.6-v1 ; docker push $DOCKER_REGISTRY/postgres:9.6-v1
-$ docker pull kubedb/postgres-tools:9.6-v1 ; docker tag kubedb/postgres-tools:9.6-v1 $DOCKER_REGISTRY/postgres-tools:9.6-v1 ; docker push $DOCKER_REGISTRY/postgres-tools:9.6-v1
+$ docker pull kubedb/postgres:9.6-v2 ; docker tag kubedb/postgres:9.6-v2 $DOCKER_REGISTRY/postgres:9.6-v2 ; docker push $DOCKER_REGISTRY/postgres:9.6-v2
+$ docker pull kubedb/postgres-tools:9.6-v2 ; docker tag kubedb/postgres-tools:9.6-v2 $DOCKER_REGISTRY/postgres-tools:9.6-v2 ; docker push $DOCKER_REGISTRY/postgres-tools:9.6-v2
 $ docker pull kubedb/postgres_exporter:v0.4.6 ; docker tag kubedb/postgres_exporter:v0.4.6 $DOCKER_REGISTRY/postgres_exporter:v0.4.6 ; docker push $DOCKER_REGISTRY/postgres_exporter:v0.4.6
 ```
 
@@ -94,11 +94,11 @@ metadata:
 spec:
   version: "9.6"
   db:
-    image: "<YOUR_PRIVATE_REGISTRY>/postgres:9.6-v1"
+    image: "<YOUR_PRIVATE_REGISTRY>/postgres:9.6-v2"
   exporter:
     image: "<YOUR_PRIVATE_REGISTRY>/postgres_exporter:v0.4.6"
   tools:
-    image: "<YOUR_PRIVATE_REGISTRY>/postgres-tools:9.6-v1"
+    image: "<YOUR_PRIVATE_REGISTRY>/postgres-tools:9.6-v2"
 ```
 
 Now, create the PostgresVersion crd,

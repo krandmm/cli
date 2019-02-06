@@ -33,7 +33,7 @@ metadata:
   name: warm-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 3
   standbyMode: Warm
   storageType: Ephemeral
@@ -57,7 +57,7 @@ metadata:
   name: hot-postgres
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 3
   standbyMode: Hot
   storageType: Ephemeral

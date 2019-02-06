@@ -49,10 +49,10 @@ To learn about various options of `create` command, please visit [here](/docs/re
 ```console
 $ kubedb get mysql
 NAME         VERSION   STATUS    AGE
-mysql-demo   8.0-v1    Running   2m
-mysql-dev    8.0-v1    Running   1m
-mysql-prod   8.0-v1    Running   1m
-mysql-qa     8.0-v1    Running   1m
+mysql-demo   8.0-v2    Running   2m
+mysql-dev    8.0-v2    Running   1m
+mysql-prod   8.0-v2    Running   1m
+mysql-qa     8.0-v2    Running   1m
 ```
 
 To get YAML of an object, use `--output=yaml` flag.
@@ -94,7 +94,7 @@ spec:
   terminationPolicy: Pause
   updateStrategy:
     type: RollingUpdate
-  version: 8.0-v1
+  version: 8.0-v2
 status:
   observedGeneration: 2$4213139756412538772
   phase: Running
@@ -111,10 +111,10 @@ To list all KubeDB objects, use following command:
 ```console
 $ kubedb get all -o wide
 NAME                          VERSION   STATUS    AGE
-mysql.kubedb.com/mysql-demo   8.0-v1    Running   3m
-mysql.kubedb.com/mysql-dev    8.0-v1    Running   2m
-mysql.kubedb.com/mysql-prod   8.0-v1    Running   2m
-mysql.kubedb.com/mysql-qa     8.0-v1    Running   2m
+mysql.kubedb.com/mysql-demo   8.0-v2    Running   3m
+mysql.kubedb.com/mysql-dev    8.0-v2    Running   2m
+mysql.kubedb.com/mysql-prod   8.0-v2    Running   2m
+mysql.kubedb.com/mysql-qa     8.0-v2    Running   2m
 
 NAME                                DATABASE              BUCKET              STATUS      AGE
 snap/mysql-demo-20170605-073557     my/mysql-demo         gs:bucket-name      Succeeded   9m

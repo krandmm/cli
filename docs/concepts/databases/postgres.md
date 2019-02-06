@@ -31,7 +31,7 @@ metadata:
   name: p1
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 2
   standbyMode: Hot
   streamingMode: asynchronous
@@ -110,7 +110,7 @@ spec:
 
 `spec.version` is a required field that specifies the name of the [PostgresVersion](/docs/concepts/catalog/postgres.md) crd where the docker images are specified. Currently, when you install KubeDB, it creates the following `PostgresVersion` crd,
 
- - `9.6.7-v1`, `9.6.7`, `9.6-v1`, `9.6`
+ - `9.6.7-v1`, `9.6.7`, `9.6-v2`, `9.6`
  - `10.2-v1`, `10.2`
 
 ### spec.replicas
@@ -205,7 +205,7 @@ kind: Postgres
 metadata:
   name: postgres-db
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   init:
     scriptSource:
       configMap:
@@ -227,7 +227,7 @@ kind: Postgres
 metadata:
   name: postgres-db
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   databaseSecret:
     secretName: postgres-old-auth
   init:
@@ -254,7 +254,7 @@ kind: Postgres
 metadata:
   name: postgres-db
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   databaseSecret:
     secretName: postgres-old
   init:

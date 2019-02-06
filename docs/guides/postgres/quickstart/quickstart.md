@@ -91,7 +91,7 @@ NAME       VERSION   DB_IMAGE                   DEPRECATED   AGE
 10.2       10.2      kubedb/postgres:10.2       true         16s
 10.2-v1    10.2      kubedb/postgres:10.2-v1                 16s
 9.6        9.6       kubedb/postgres:9.6        true         19s
-9.6-v1     9.6       kubedb/postgres:9.6-v1                  18s
+9.6-v2     9.6       kubedb/postgres:9.6-v2                  18s
 9.6.7      9.6.7     kubedb/postgres:9.6.7      true         18s
 9.6.7-v1   9.6.7     kubedb/postgres:9.6.7-v1                17s
 ```

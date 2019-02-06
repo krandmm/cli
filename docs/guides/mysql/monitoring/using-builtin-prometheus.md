@@ -49,7 +49,7 @@ metadata:
   name: builtin-prom-mysql
   namespace: demo
 spec:
-  version: "8.0-v1"
+  version: "8.0-v2"
   terminationPolicy: WipeOut
   storage:
     storageClassName: "standard"
@@ -78,7 +78,7 @@ Now, wait for the database to go into `Running` state.
 ```console
 $ kubectl get my -n demo builtin-prom-mysql
 NAME                 VERSION   STATUS    AGE
-builtin-prom-mysql   8.0-v1    Running   3m
+builtin-prom-mysql   8.0-v2    Running   3m
 ```
 
 KubeDB will create a separate stats service with name `{MySQL crd name}-stats` for monitoring purpose.

@@ -95,7 +95,7 @@ metadata:
   name: coreos-prom-mysql
   namespace: demo
 spec:
-  version: "8.0-v1"
+  version: "8.0-v2"
   terminationPolicy: WipeOut
   storage:
     storageClassName: "standard"
@@ -134,7 +134,7 @@ Now, wait for the database to go into `Running` state.
 ```console
 $ kubectl get mysql -n demo coreos-prom-mysql
 NAME                VERSION   STATUS    AGE
-coreos-prom-mysql   8.0-v1    Running   17s
+coreos-prom-mysql   8.0-v2    Running   17s
 ```
 
 KubeDB will create a separate stats service with name `{MySQL crd name}-stats` for monitoring purpose.

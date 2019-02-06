@@ -66,7 +66,7 @@ metadata:
   name: scheduled-pg
   namespace: demo
 spec:
-  version: "9.6-v1"
+  version: "9.6-v2"
   replicas: 3
   storage:
     storageClassName: "standard"
