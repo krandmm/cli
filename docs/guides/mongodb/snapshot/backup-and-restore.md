@@ -36,7 +36,7 @@ This tutorial will show you how to take snapshots of a KubeDB managed MongoDB da
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
 
   $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/snapshot/demo-1.yaml
   mongodb.kubedb.com/mgo-infant created

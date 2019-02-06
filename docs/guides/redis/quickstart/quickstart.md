@@ -37,7 +37,7 @@ This tutorial will show you how to use KubeDB to run a Redis server.
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
 
   $ kubectl get ns
   NAME          STATUS    AGE

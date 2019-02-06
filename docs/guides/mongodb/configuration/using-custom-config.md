@@ -26,7 +26,7 @@ KubeDB supports providing custom configuration for MongoDB. This tutorial will s
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
 
   $ kubectl get ns
   NAME          STATUS    AGE

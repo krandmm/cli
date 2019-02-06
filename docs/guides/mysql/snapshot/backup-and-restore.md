@@ -35,7 +35,7 @@ This tutorial will show you how to take snapshots of a KubeDB managed MySQL data
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl get ns
   NAME          STATUS    AGE

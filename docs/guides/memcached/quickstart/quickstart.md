@@ -31,7 +31,7 @@ This tutorial will show you how to use KubeDB to run a Memcached server.
 
 ```console
 $ kubectl create ns demo
-namespace "demo" created
+namespace/demo created
 
 $ kubectl get ns demo
 NAME      STATUS    AGE

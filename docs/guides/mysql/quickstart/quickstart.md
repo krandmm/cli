@@ -39,7 +39,7 @@ This tutorial will show you how to use KubeDB to run a MySQL database.
 
   ```console
   $ kubectl create ns demo
-  namespace "demo" created
+  namespace/demo created
   
   $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-1.yaml
   deployment.extensions/myadmin created
