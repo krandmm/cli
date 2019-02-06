@@ -93,7 +93,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/configuration/mgo-misc-config.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/configuration/mgo-misc-config.yaml
 mongodb.kubedb.com/mgo-misc-config created
 ```
 
@@ -175,7 +175,7 @@ spec:
   databaseName: mgo-misc-config
   storageSecretName: mg-snap-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
   podTemplate:
     spec:
       args:
@@ -183,7 +183,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/configuration/snapshot-misc-conf.yaml 
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/configuration/snapshot-misc-conf.yaml 
 snapshot.kubedb.com/snap-mongodb-config created
 
 
@@ -209,7 +209,7 @@ spec:
     cronExpression: '@every 1m'
     storageSecretName: mg-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     podTemplate:
       spec:
         args:

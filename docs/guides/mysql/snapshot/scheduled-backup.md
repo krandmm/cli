@@ -90,7 +90,7 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: my-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 ```console
@@ -106,7 +106,7 @@ spec:
   backupSchedule:
     cronExpression: '@every 1m'
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     storageSecretName: my-snap-secret
 ```
 
@@ -143,7 +143,7 @@ spec:
 #  backupSchedule:
 #    cronExpression: '@every 1m'
 #    gcs:
-#      bucket: kubedb
+#      bucket: kubedb-qa
 #    storageSecretName: my-snap-secret
   databaseSecret:
     secretName: mysql-scheduled-auth

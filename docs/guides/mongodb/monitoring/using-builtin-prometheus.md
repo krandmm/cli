@@ -69,7 +69,7 @@ Here,
 Let's create the MongoDB crd we have shown above.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/monitoring/builtin-prom-mgo.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/monitoring/builtin-prom-mgo.yaml
 mongodb.kubedb.com/builtin-prom-mgo created
 ```
 

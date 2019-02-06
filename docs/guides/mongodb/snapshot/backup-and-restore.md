@@ -38,11 +38,7 @@ This tutorial will show you how to take snapshots of a KubeDB managed MongoDB da
   $ kubectl create ns demo
   namespace "demo" created
 
-  $ kubectl get ns
-  NAME          STATUS    AGE
-  demo          Active    1m
-
-  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-1.yaml
+  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/snapshot/demo-1.yaml
   mongodb.kubedb.com/mgo-infant created
   ```
 
@@ -74,16 +70,16 @@ data:
   GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3V...9tIgp9Cg==
 kind: Secret
 metadata:
-  creationTimestamp: 2018-02-02T10:02:09Z
+  creationTimestamp: "2019-02-06T06:27:36Z"
   name: mg-snap-secret
   namespace: demo
-  resourceVersion: "48679"
+  resourceVersion: "73604"
   selfLink: /api/v1/namespaces/demo/secrets/mg-snap-secret
-  uid: 220a7c60-0800-11e8-946f-080027c05a6e
+  uid: 4b9d647b-29d8-11e9-aebf-080027875192
 type: Opaque
 ```
 
-To lean how to configure other storage destinations for Snapshots, please visit [here](/docs/concepts/snapshot.md). Now, create the Snapshot object.
+To learn how to configure other storage destinations for Snapshots, please visit [here](/docs/concepts/snapshot.md). Now, create the Snapshot object.
 
 ```yaml
 apiVersion: kubedb.com/v1alpha1
@@ -97,11 +93,11 @@ spec:
   databaseName: mgo-infant
   storageSecretName: mg-snap-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/snapshot/demo-2.yaml
 snapshot.kubedb.com/snapshot-infant created
 
 $ kubedb get snap -n demo
@@ -130,7 +126,7 @@ metadata:
 spec:
   databaseName: mgo-infant
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
   storageSecretName: mg-snap-secret
 status:
   phase: Running
@@ -256,7 +252,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-3.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/snapshot/demo-3.yaml
 mongodb.kubedb.com/mgo-recovered created
 ```
 

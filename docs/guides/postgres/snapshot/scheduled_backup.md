@@ -79,7 +79,7 @@ spec:
     cronExpression: "@every 6h"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 Here,
@@ -118,7 +118,7 @@ spec:
 #    cronExpression: '@every 6h'
 #    storageSecretName: gcs-secret
 #    gcs:
-#      bucket: kubedb
+#      bucket: kubedb-qa
 ```
 
 ## Update Postgres to Enable Periodic Backup
@@ -133,7 +133,7 @@ $ kubectl edit pg scheduled-pg -n demo
     cronExpression: "@every 6h"
     storageSecretName: gcs-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 Once the `spec.backupSchedule` is added, KubeDB operator creates a Snapshot object immediately and registers to create a new Snapshot object on each tick of the cron expression.

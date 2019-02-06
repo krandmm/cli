@@ -58,7 +58,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 Here,

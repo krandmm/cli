@@ -127,7 +127,7 @@ spec:
 Now run the command to deploy this `MongoDB` object:
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/private-registry/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/private-registry/demo-2.yaml
 mongodb.kubedb.com/mgo-pvt-reg created
 ```
 

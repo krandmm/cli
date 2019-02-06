@@ -95,11 +95,11 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: mg-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-4.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/mongo-doc-upd/docs/examples/mongodb/snapshot/demo-4.yaml
 mongodb.kubedb.com/mgo-scheduled created
 ```
 
@@ -111,7 +111,7 @@ spec:
   backupSchedule:
     cronExpression: '@every 1m'
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
     storageSecretName: mg-snap-secret
 ```
 
@@ -148,7 +148,7 @@ spec:
 # backupSchedule:
 #   cronExpression: '@every 1m'
 #   gcs:
-#     bucket: kubedb
+#     bucket: kubedb-qa
 #   storageSecretName: mg-snap-secret
   databaseSecret:
     secretName: mgo-scheduled-auth

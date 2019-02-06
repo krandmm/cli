@@ -119,7 +119,7 @@ spec:
   databaseName: infant-elasticsearch
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 Here,

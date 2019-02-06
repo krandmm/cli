@@ -96,7 +96,7 @@ spec:
   databaseName: mysql-infant
   storageSecretName: my-snap-secret
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
 ```
 
 ```console
@@ -128,7 +128,7 @@ metadata:
 spec:
   databaseName: mysql-infant
   gcs:
-    bucket: kubedb
+    bucket: kubedb-qa
   storageSecretName: my-snap-secret
 status:
   completionTime: 2018-09-27T06:18:41Z

@@ -16,4 +16,4 @@ spec:
     cronExpression: "@every 1m"
     storageSecretName: my-snap-secret
     gcs:
-      bucket: kubedb
+      bucket: kubedb-qa
