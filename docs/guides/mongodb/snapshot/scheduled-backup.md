@@ -29,10 +29,6 @@ This tutorial will show you how to use KubeDB to take scheduled snapshot of a Mo
   ```console
   $ kubectl create ns demo
   namespace "demo" created
-
-  $ kubectl get ns
-  NAME          STATUS    AGE
-  demo          Active    1m
   ```
 
 > Note: The yaml files used in this tutorial are stored in [docs/examples/mongodb](https://github.com/kubedb/cli/tree/master/docs/examples/mongodb) folder in GitHub repository [kubedb/cli](https://github.com/kubedb/cli).
@@ -159,7 +155,7 @@ spec:
       requests:
         storage: 1Gi
     storageClassName: standard
-  version: 3.4
+  version: 3.4-v2
 status:
   creationTime: 2018-02-02T10:46:18Z
   phase: Running

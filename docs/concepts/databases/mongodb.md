@@ -190,7 +190,7 @@ kind: MongoDB
 metadata:
   name: mgo1
 spec:
-  version: 3.4
+  version: 3.4-v2
   init:
     scriptSource:
       configMap:
@@ -212,7 +212,7 @@ kind: MongoDB
 metadata:
   name: mgo1
 spec:
-  version: 3.4
+  version: 3.4-v2
   init:
     snapshotSource:
       name: "snapshot-xyz"

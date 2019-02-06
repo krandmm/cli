@@ -102,7 +102,11 @@ snapshot.kubedb.com/snapshot-infant created
 
 $ kubedb get snap -n demo
 NAME              DATABASENAME   STATUS    AGE
-snapshot-infant   mgo-infant     Running   23s
+snapshot-infant   mgo-infant     Running   10s
+
+$ kubedb get snap -n demo
+NAME              DATABASENAME   STATUS      AGE
+snapshot-infant   mgo-infant     Succeeded   20s
 ```
 
 ```yaml
@@ -110,27 +114,27 @@ $ kubedb get snap -n demo snapshot-infant -o yaml
 apiVersion: kubedb.com/v1alpha1
 kind: Snapshot
 metadata:
-  creationTimestamp: 2018-09-24T11:09:26Z
+  creationTimestamp: "2019-02-06T06:40:07Z"
   finalizers:
   - kubedb.com
   generation: 1
   labels:
     kubedb.com/kind: MongoDB
     kubedb.com/name: mgo-infant
-    snapshot.kubedb.com/status: Running
   name: snapshot-infant
   namespace: demo
-  resourceVersion: "27413"
+  resourceVersion: "74570"
   selfLink: /apis/kubedb.com/v1alpha1/namespaces/demo/snapshots/snapshot-infant
-  uid: 4ce85a07-bfea-11e8-93d2-080027e2cfdd
+  uid: 0b20a530-29da-11e9-aebf-080027875192
 spec:
   databaseName: mgo-infant
   gcs:
     bucket: kubedb-qa
   storageSecretName: mg-snap-secret
 status:
-  phase: Running
-  startTime: 2018-09-24T11:09:27Z
+  completionTime: "2019-02-06T06:40:14Z"
+  phase: Succeeded
+  startTime: "2019-02-06T06:40:07Z"
 ```
 
 Here,
@@ -146,7 +150,7 @@ You can also run the `kubedb describe` command to see the recent snapshots taken
 $ kubedb describe mg -n demo mgo-infant
 Name:               mgo-infant
 Namespace:          demo
-CreationTimestamp:  Mon, 24 Sep 2018 17:04:54 +0600
+CreationTimestamp:  Wed, 06 Feb 2019 12:27:01 +0600
 Labels:             <none>
 Annotations:        <none>
 Replicas:           1  total
@@ -157,27 +161,27 @@ Volume:
   Capacity:      1Gi
   Access Modes:  RWO
 
-StatefulSet:
+StatefulSet:          
   Name:               mgo-infant
-  CreationTimestamp:  Mon, 24 Sep 2018 17:04:59 +0600
+  CreationTimestamp:  Wed, 06 Feb 2019 12:27:01 +0600
   Labels:               kubedb.com/kind=MongoDB
                         kubedb.com/name=mgo-infant
   Annotations:        <none>
-  Replicas:           824641944540 desired | 1 total
+  Replicas:           824638132588 desired | 1 total
   Pods Status:        1 Running / 0 Waiting / 0 Succeeded / 0 Failed
 
-Service:
+Service:        
   Name:         mgo-infant
   Labels:         kubedb.com/kind=MongoDB
                   kubedb.com/name=mgo-infant
   Annotations:  <none>
   Type:         ClusterIP
-  IP:           10.106.56.236
+  IP:           10.96.65.189
   Port:         db  27017/TCP
   TargetPort:   db/TCP
-  Endpoints:    172.17.0.5:27017
+  Endpoints:    172.17.0.7:27017
 
-Service:
+Service:        
   Name:         mgo-infant-gvr
   Labels:         kubedb.com/kind=MongoDB
                   kubedb.com/name=mgo-infant
@@ -186,7 +190,7 @@ Service:
   IP:           None
   Port:         db  27017/TCP
   TargetPort:   27017/TCP
-  Endpoints:    172.17.0.5:27017
+  Endpoints:    172.17.0.7:27017
 
 Database Secret:
   Name:         mgo-infant-auth
@@ -198,26 +202,25 @@ Type:  Opaque
   
 Data
 ====
-  user:      4 bytes
   password:  16 bytes
+  username:  4 bytes
 
 Snapshots:
-  Name             Bucket     StartTime                        CompletionTime                   Phase
-  ----             ------     ---------                        --------------                   -----
-  snapshot-infant  gs:kubedb  Mon, 24 Sep 2018 17:09:27 +0600  Mon, 24 Sep 2018 17:10:17 +0600  Succeeded
+  Name             Bucket        StartTime                        CompletionTime                   Phase
+  ----             ------        ---------                        --------------                   -----
+  snapshot-infant  gs:kubedb-qa  Wed, 06 Feb 2019 12:40:07 +0600  Wed, 06 Feb 2019 12:40:14 +0600  Succeeded
 
 Events:
-  Type    Reason              Age   From              Message
-  ----    ------              ----  ----              -------
-  Normal  Successful          6m    MongoDB operator  Successfully created Service
-  Normal  Successful          5m    MongoDB operator  Successfully created StatefulSet
-  Normal  Successful          5m    MongoDB operator  Successfully created MongoDB
-  Normal  Successful          5m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Successful          5m    MongoDB operator  Successfully patched MongoDB
-  Normal  Successful          5m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Successful          5m    MongoDB operator  Successfully patched MongoDB
-  Normal  Starting            2m    Job Controller    Backup running
-  Normal  SuccessfulSnapshot  1m    Job Controller    Successfully completed snapshot
+  Type     Reason              Age   From              Message
+  ----     ------              ----  ----              -------
+  Normal   Successful          15m   MongoDB operator  Successfully created Service
+  Normal   Successful          14m   MongoDB operator  Successfully created StatefulSet
+  Normal   Successful          14m   MongoDB operator  Successfully created MongoDB
+  Normal   Successful          14m   MongoDB operator  Successfully created appbinding
+  Normal   Successful          14m   MongoDB operator  Successfully patched StatefulSet
+  Normal   Successful          14m   MongoDB operator  Successfully patched MongoDB
+  Normal   Starting            1m    MongoDB operator  Backup running
+  Normal   SuccessfulSnapshot  1m    MongoDB operator  Successfully completed snapshot
 ```
 
 Once the snapshot Job is complete, you should see the output of the `mongodump` command stored in the GCS bucket.
@@ -270,13 +273,13 @@ mgo-recovered   3.4-v2    Initializing   57s
 
 $ kubedb get mg -n demo
 NAME            VERSION   STATUS    AGE
-mgo-infant      3.4-v2    Running   13m
-mgo-recovered   3.4-v2    Running   1m
+mgo-infant      3.4-v2    Running   16m
+mgo-recovered   3.4-v2    Running   45s
 
 $ kubedb describe mg -n demo mgo-recovered
 Name:               mgo-recovered
 Namespace:          demo
-CreationTimestamp:  Mon, 24 Sep 2018 17:17:14 +0600
+CreationTimestamp:  Wed, 06 Feb 2019 12:43:00 +0600
 Labels:             <none>
 Annotations:        kubedb.com/initialized=
 Replicas:           1  total
@@ -287,27 +290,27 @@ Volume:
   Capacity:      1Gi
   Access Modes:  RWO
 
-StatefulSet:
+StatefulSet:          
   Name:               mgo-recovered
-  CreationTimestamp:  Mon, 24 Sep 2018 17:17:20 +0600
+  CreationTimestamp:  Wed, 06 Feb 2019 12:43:00 +0600
   Labels:               kubedb.com/kind=MongoDB
                         kubedb.com/name=mgo-recovered
   Annotations:        <none>
-  Replicas:           824642112848 desired | 1 total
+  Replicas:           824640777328 desired | 1 total
   Pods Status:        1 Running / 0 Waiting / 0 Succeeded / 0 Failed
 
-Service:
+Service:        
   Name:         mgo-recovered
   Labels:         kubedb.com/kind=MongoDB
                   kubedb.com/name=mgo-recovered
   Annotations:  <none>
   Type:         ClusterIP
-  IP:           10.100.10.221
+  IP:           10.111.0.62
   Port:         db  27017/TCP
   TargetPort:   db/TCP
-  Endpoints:    172.17.0.6:27017
+  Endpoints:    172.17.0.8:27017
 
-Service:
+Service:        
   Name:         mgo-recovered-gvr
   Labels:         kubedb.com/kind=MongoDB
                   kubedb.com/name=mgo-recovered
@@ -316,7 +319,7 @@ Service:
   IP:           None
   Port:         db  27017/TCP
   TargetPort:   27017/TCP
-  Endpoints:    172.17.0.6:27017
+  Endpoints:    172.17.0.8:27017
 
 Database Secret:
   Name:         mgo-recovered-auth
@@ -329,28 +332,25 @@ Type:  Opaque
 Data
 ====
   password:  16 bytes
-  user:      4 bytes
+  username:  4 bytes
 
 No Snapshots.
 
 Events:
   Type    Reason                Age   From              Message
   ----    ------                ----  ----              -------
-  Normal  Successful            2m    MongoDB operator  Successfully created Service
-  Normal  Successful            2m    MongoDB operator  Successfully created MongoDB
-  Normal  Successful            2m    MongoDB operator  Successfully created StatefulSet
-  Normal  Initializing          2m    MongoDB operator  Initializing from Snapshot: "snapshot-infant"
-  Normal  Successful            2m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Successful            2m    MongoDB operator  Successfully patched MongoDB
-  Normal  SuccessfulInitialize  1m    Job Controller    Successfully completed initialization
-  Normal  Successful            1m    MongoDB operator  Successfully patched MongoDB
-  Normal  Successful            1m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Initializing          1m    MongoDB operator  Initializing from Snapshot: "snapshot-infant"
-  Normal  Successful            1m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Successful            1m    MongoDB operator  Successfully patched MongoDB
-  Normal  Successful            1m    MongoDB operator  Successfully patched StatefulSet
-  Normal  Successful            1m    MongoDB operator  Successfully patched MongoDB
-  Normal  SuccessfulInitialize  1m    Job Controller    Successfully completed initialization
+  Normal  Successful            56s   MongoDB operator  Successfully created Service
+  Normal  Successful            47s   MongoDB operator  Successfully created StatefulSet
+  Normal  Successful            47s   MongoDB operator  Successfully created MongoDB
+  Normal  Initializing          46s   MongoDB operator  Initializing from Snapshot: "snapshot-infant"
+  Normal  Successful            46s   MongoDB operator  Successfully patched StatefulSet
+  Normal  Successful            46s   MongoDB operator  Successfully patched MongoDB
+  Normal  SuccessfulInitialize  39s   MongoDB operator  Successfully completed initialization
+  Normal  Successful            39s   MongoDB operator  Successfully patched StatefulSet
+  Normal  Successful            39s   MongoDB operator  Successfully patched MongoDB
+  Normal  Successful            39s   MongoDB operator  Successfully created appbinding
+  Normal  Successful            39s   MongoDB operator  Successfully patched StatefulSet
+  Normal  Successful            39s   MongoDB operator  Successfully patched MongoDB
 ```
 
 ## Cleaning up
