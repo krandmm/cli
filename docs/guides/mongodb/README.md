@@ -70,7 +70,7 @@ Here, &#10003; means supported and &#10007; means deprecated.
 |                                     Tool                                     | Version |
 | ---------------------------------------------------------------------------- | :-----: |
 | [peer-finder](https://github.com/kubernetes/contrib/tree/master/peer-finder) | latest  |
-| [osm](https://github.com/appscode/osm)                                       |  0.8.0  |
+| [osm](https://github.com/appscode/osm)                                       |  0.9.1  |
 
 <br/>
 

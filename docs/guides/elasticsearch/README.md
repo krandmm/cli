@@ -79,7 +79,7 @@ Here, &#10003; means supported and &#10007; means deprecated.
 | ---------------------------------------------------------------- | :-------------------------: |
 | [Search Guard](https://github.com/floragunncom/search-guard)     | `5.6.4-18` and `6.2.4-22.1` |
 | [Elasticdump](https://github.com/taskrabbit/elasticsearch-dump/) |    `3.3.1` and `3.3.14`     |
-| [osm](https://github.com/appscode/osm)                           |            0.8.0            |
+| [osm](https://github.com/appscode/osm)                           |            0.9.1            |
 | [yq](https://github.com/mikefarah/yq)                            |            2.1.1            |
 
 <br/>

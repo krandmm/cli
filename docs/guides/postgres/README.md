@@ -73,7 +73,7 @@ Here, &#10003; means supported and &#10007; means deprecated.
 |Tool                                      |Version  |
 |------------------------------------------|:-------:|
 |[wal-g](https://github.com/wal-g/wal-g)   | v0.1.7  |
-|[osm](https://github.com/appscode/osm)    | 0.8.0   |
+|[osm](https://github.com/appscode/osm)    | 0.9.1   |
 
 ## User Guide
 

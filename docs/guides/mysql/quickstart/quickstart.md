@@ -74,15 +74,18 @@ When you have installed KubeDB, it has created `MySQLVersion` crd for all suppor
 
 ```console
 $ kubectl get mysqlversions
-NAME      VERSION   DB_IMAGE              DEPRECATED   AGE
-5         5         kubedb/mysql:5        true         33s
-5-v1      5         kubedb/mysql:5-v1                  33s
-5.7       5.7       kubedb/mysql:5.7      true         33s
-5.7-v1    5.7       kubedb/mysql:5.7-v1                32s
-8         8         kubedb/mysql:8        true         32s
-8-v1      8         kubedb/mysql:8-v1                  32s
-8.0       8.0       kubedb/mysql:8.0      true         32s
-8.0-v2    8.0       kubedb/mysql:8.0-v2                32s
+NAME     VERSION   DB_IMAGE                  DEPRECATED   AGE
+5        5         kubedb/mysql:5        true         29s
+5-v1     5         kubedb/mysql:5-v1     true         29s
+5.7      5.7       kubedb/mysql:5.7      true         29s
+5.7-v1   5.7       kubedb/mysql:5.7-v1                29s
+8        8         kubedb/mysql:8        true         29s
+8-v1     8         kubedb/mysql:8-v1     true         29s
+8.0      8.0       kubedb/mysql:8.0      true         29s
+8.0-v1   8.0       kubedb/mysql:8.0-v1                29s
+8.0-v2   8.0       kubedb/mysql:8.0-v2                29s
+8.0.14   8.0.14    kubedb/mysql:8.0.14                29s
+8.0.3    8.0.3     kubedb/mysql:8.0.3                 29s
 ```
 
 ## Create a MySQL database
@@ -128,7 +131,7 @@ KubeDB operator watches for `MySQL` objects using Kubernetes api. When a `MySQL`
 $ kubedb describe my -n demo mysql-quickstart
 Name:               mysql-quickstart
 Namespace:          demo
-CreationTimestamp:  Thu, 27 Sep 2018 11:07:25 +0600
+CreationTimestamp:  Wed, 06 Feb 2019 17:17:55 +0600
 Labels:             <none>
 Annotations:        <none>
 Replicas:           1  total
@@ -141,11 +144,11 @@ Volume:
 
 StatefulSet:          
   Name:               mysql-quickstart
-  CreationTimestamp:  Thu, 27 Sep 2018 11:07:26 +0600
+  CreationTimestamp:  Wed, 06 Feb 2019 17:17:55 +0600
   Labels:               kubedb.com/kind=MySQL
                         kubedb.com/name=mysql-quickstart
   Annotations:        <none>
-  Replicas:           824635563004 desired | 1 total
+  Replicas:           824641282668 desired | 1 total
   Pods Status:        1 Running / 0 Waiting / 0 Succeeded / 0 Failed
 
 Service:        
@@ -154,10 +157,10 @@ Service:
                   kubedb.com/name=mysql-quickstart
   Annotations:  <none>
   Type:         ClusterIP
-  IP:           10.100.54.85
+  IP:           10.99.24.103
   Port:         db  3306/TCP
   TargetPort:   db/TCP
-  Endpoints:    172.17.0.6:3306
+  Endpoints:    172.17.0.8:3306
 
 Database Secret:
   Name:         mysql-quickstart-auth
@@ -175,19 +178,18 @@ Data
 No Snapshots.
 
 Events:
-  Type    Reason      Age   From            Message
-  ----    ------      ----  ----            -------
-  Normal  Successful  5m    MySQL operator  Successfully created Service
-  Normal  Successful  2m    MySQL operator  Successfully created StatefulSet
-  Normal  Successful  2m    MySQL operator  Successfully created MySQL
-  Normal  Successful  2m    MySQL operator  Successfully patched StatefulSet
-  Normal  Successful  2m    MySQL operator  Successfully patched MySQL
-  Normal  Successful  2m    MySQL operator  Successfully patched StatefulSet
-  Normal  Successful  2m    MySQL operator  Successfully patched MySQL
+  Type    Reason      Age   From             Message
+  ----    ------      ----  ----             -------
+  Normal  Successful  2m    KubeDB operator  Successfully created Service
+  Normal  Successful  53s   KubeDB operator  Successfully created StatefulSet
+  Normal  Successful  53s   KubeDB operator  Successfully created MySQL
+  Normal  Successful  53s   KubeDB operator  Successfully created appbinding
+  Normal  Successful  53s   KubeDB operator  Successfully patched StatefulSet
+  Normal  Successful  53s   KubeDB operator  Successfully patched MySQL
 
 $ kubectl get statefulset -n demo
-NAME               DESIRED   CURRENT   AGE
-mysql-quickstart   1         1         10m
+NAME               READY   AGE
+mysql-quickstart   1/1     2m22s
 
 $ kubectl get pvc -n demo
 NAME                      STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -211,15 +213,15 @@ $ kubedb get my -n demo mysql-quickstart -o yaml
 apiVersion: kubedb.com/v1alpha1
 kind: MySQL
 metadata:
-  creationTimestamp: 2018-09-27T05:07:25Z
+  creationTimestamp: "2019-02-06T11:17:55Z"
   finalizers:
   - kubedb.com
   generation: 2
   name: mysql-quickstart
   namespace: demo
-  resourceVersion: "2811"
+  resourceVersion: "2158"
   selfLink: /apis/kubedb.com/v1alpha1/namespaces/demo/mysqls/mysql-quickstart
-  uid: 390009fb-c213-11e8-819c-08002760fa16
+  uid: d9b37fc3-2a00-11e9-a088-080027ab5700
 spec:
   databaseSecret:
     secretName: mysql-quickstart-auth
@@ -235,12 +237,13 @@ spec:
   storage:
     accessModes:
     - ReadWriteOnce
+    dataSource: null
     resources:
       requests:
         storage: 1Gi
     storageClassName: standard
   storageType: Durable
-  terminationPolicy: Pause
+  terminationPolicy: DoNotTerminate
   updateStrategy:
     type: RollingUpdate
   version: 8.0-v2
@@ -264,8 +267,10 @@ $ kubectl get secrets -n demo mysql-quickstart-auth -o jsonpath='{.data.\usernam
 root
 
 $ kubectl get secrets -n demo mysql-quickstart-auth -o jsonpath='{.data.\password}' | base64 -d
-8EisTcVchPiTSZOR
+fDepOJbZ1AdP1lkR
 ```
+
+In MySQL:8.0.14 
 
 Now, open your browser and go to the following URL: _http://{minikube-ip}:{myadmin-svc-nodeport}_. To log into the phpMyAdmin, use host __`172.17.0.6`__ , username __`root`__ and password __`pefjWeXoAQ9PaRZv`__.
 
