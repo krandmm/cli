@@ -29,7 +29,7 @@ metadata:
   name: mgo1
   namespace: demo
 spec:
-  version: "3.4-v1"
+  version: "3.4-v2"
   replicas: 3
     replicaSet:
       name: rs0
@@ -107,8 +107,10 @@ spec:
 
 `spec.version` is a required field specifying the name of the [MongoDBVersion](/docs/concepts/catalog/mongodb.md) crd where the docker images are specified. Currently, when you install KubeDB, it creates the following `MongoDBVersion` crd,
 
-- `3.4-v1`, `3.4`
-- `3.6-v1`, `3.6`
+- `3.4-v2`, `3.4-v1`, `3.4`
+- `3.6-v2`, `3.6-v1`, `3.6`
+- `4.0.5`, `4.0`
+- `4.1.7`
 
 ### spec.replicas
 

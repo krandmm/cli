@@ -52,7 +52,7 @@ metadata:
   name: mgo-replicaset
   namespace: demo
 spec:
-  version: "3.6-v1"
+  version: "3.6-v2"
   replicas: 3
   replicaSet:
     name: rs0
@@ -216,7 +216,7 @@ spec:
   terminationPolicy: Pause
   updateStrategy:
     type: RollingUpdate
-  version: 3.6-v1
+  version: 3.6-v2
 status:
   observedGeneration: 1$4210395375389091791
   phase: Running
@@ -430,7 +430,7 @@ spec:
         terminationPolicy: Pause
         updateStrategy:
           type: RollingUpdate
-        version: 3.6-v1
+        version: 3.6-v2
 status:
   observedGeneration: 1$16440556888999634490
   pausingTime: 2018-09-25T09:23:42Z

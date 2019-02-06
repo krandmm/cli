@@ -241,7 +241,7 @@ metadata:
   name: mgo-recovered
   namespace: demo
 spec:
-  version: "3.4-v1"
+  version: "3.4-v2"
   storage:
     storageClassName: "standard"
     accessModes:
@@ -269,13 +269,13 @@ Now, wait several seconds. KubeDB operator will create a new StatefulSet. Then K
 ```console
 $ kubedb get mg -n demo
 NAME            VERSION   STATUS         AGE
-mgo-infant      3.4-v1    Running        13m
-mgo-recovered   3.4-v1    Initializing   57s
+mgo-infant      3.4-v2    Running        13m
+mgo-recovered   3.4-v2    Initializing   57s
 
 $ kubedb get mg -n demo
 NAME            VERSION   STATUS    AGE
-mgo-infant      3.4-v1    Running   13m
-mgo-recovered   3.4-v1    Running   1m
+mgo-infant      3.4-v2    Running   13m
+mgo-recovered   3.4-v2    Running   1m
 
 $ kubedb describe mg -n demo mgo-recovered
 Name:               mgo-recovered
