@@ -75,7 +75,7 @@ spec:
       requests:
         storage: 1Gi
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa
@@ -112,7 +112,7 @@ Edit your Elasticsearch object and remove BackupSchedule. This will stop taking 
 $ kubectl edit es -n demo scheduled-es
 spec:
 #  backupSchedule:
-#    cronExpression: '@every 6h'
+#    cronExpression: '@every 2m'
 #    gcs:
 #      bucket: kubedb-qa
 #    storageSecretName: gcs-secret
@@ -127,7 +127,7 @@ Edit the Elasticsearch `scheduled-es` to add following `spec.backupSchedule` sec
 ```yaml
 $ kubectl edit es scheduled-es -n demo
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa

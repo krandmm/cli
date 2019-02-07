@@ -26,10 +26,6 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 ```console
 $ kubectl create ns demo
 namespace/demo created
-
-$ kubectl get ns demo
-NAME    STATUS  AGE
-demo    Active  5s
 ```
 
 > Note: YAML files used in this tutorial are stored in [docs/examples/postgres](https://github.com/kubedb/cli/tree/master/docs/examples/postgres) folder in GitHub repository [kubedb/cli](https://github.com/kubedb/cli).
@@ -41,10 +37,10 @@ OpenStack Swift and/or locally mounted volumes using [osm](https://github.com/ap
 
 In this tutorial, snapshots will be stored in a Google Cloud Storage (GCS) bucket. To do so, a secret is needed that has the following 2 keys:
 
-| Key                               | Description                                                |
-|-----------------------------------|------------------------------------------------------------|
-| `GOOGLE_PROJECT_ID`               | `Required`. Google Cloud project ID                        |
-| `GOOGLE_SERVICE_ACCOUNT_JSON_KEY` | `Required`. Google Cloud service account json key          |
+|                Key                |                    Description                    |
+| --------------------------------- | ------------------------------------------------- |
+| `GOOGLE_PROJECT_ID`               | `Required`. Google Cloud project ID               |
+| `GOOGLE_SERVICE_ACCOUNT_JSON_KEY` | `Required`. Google Cloud service account json key |
 
 ```console
 $ echo -n '<your-project-id>' > GOOGLE_PROJECT_ID
@@ -76,7 +72,7 @@ spec:
       requests:
         storage: 1Gi
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa
@@ -115,7 +111,7 @@ Edit your Postgres object and remove BackupSchedule. This will stop taking futur
 $ kubectl edit pg -n demo scheduled-pg
 spec:
 #  backupSchedule:
-#    cronExpression: '@every 6h'
+#    cronExpression: '@every 2m'
 #    storageSecretName: gcs-secret
 #    gcs:
 #      bucket: kubedb-qa
@@ -130,7 +126,7 @@ Edit the Postgres `scheduled-pg` to add following `spec.backupSchedule` section.
 ```console
 $ kubectl edit pg scheduled-pg -n demo
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa

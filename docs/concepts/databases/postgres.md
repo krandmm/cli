@@ -55,7 +55,7 @@ spec:
       configMap:
         name: pg-init-script
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa

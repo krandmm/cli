@@ -50,7 +50,7 @@ spec:
       configMap:
         name: mg-init-script
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: mg-snap-secret
     gcs:
       bucket: kubedb-qa

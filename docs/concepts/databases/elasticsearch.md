@@ -50,7 +50,7 @@ spec:
       configMap:
         name: es-init-script
   backupSchedule:
-    cronExpression: "@every 6h"
+    cronExpression: "@every 2m"
     storageSecretName: gcs-secret
     gcs:
       bucket: kubedb-qa

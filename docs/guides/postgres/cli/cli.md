@@ -253,7 +253,7 @@ $ kubedb edit pg postgres-demo
 
 # Add following under Spec to configure periodic backups
 #  backupSchedule:
-#    cronExpression: "@every 6h"
+#    cronExpression: "@every 2m"
 #    storageSecretName: "secret-name"
 #   gcs:
 #      bucket: "bucket-name"

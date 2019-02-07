@@ -85,7 +85,7 @@ When you have installed KubeDB, it has created `PostgresVersion` crd for all sup
 $ kubectl get postgresversions
 NAME       VERSION   DB_IMAGE                   DEPRECATED   AGE
 10.2       10.2      kubedb/postgres:10.2       true         1h
-10.2-v2    10.2      kubedb/postgres:10.2-v2    true         1h
+10.2-v1    10.2      kubedb/postgres:10.2-v2    true         1h
 10.2-v2    10.2      kubedb/postgres:10.2-v3                 1h
 10.6       10.6      kubedb/postgres:10.6                    1h
 11.1       11.1      kubedb/postgres:11.1                    1h
@@ -139,7 +139,7 @@ Let's create Postgres crd,
 
 ```console
 $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/quick-postgres.yaml
-postgres "quick-postgres" created
+postgres.kubedb.com/quick-postgres created
 ```
 
 KubeDB operator watches for Postgres objects using Kubernetes api. When a Postgres object is created, KubeDB operator will create a new StatefulSet and two ClusterIP Service with the matching name. KubeDB operator will also create a governing service for StatefulSet with the name `kubedb`, if one is not already present.
@@ -150,8 +150,8 @@ KubeDB operator sets the `status.phase` to `Running` once the database is succes
 
 ```console
 $  kubectl get pg -n demo quick-postgres -o wide
-NAME             VERSION   STATUS    AGE
-quick-postgres   10.2-v2      Running   1m
+NAME             VERSION   STATUS     AGE
+quick-postgres   10.2-v2   Creating   13s
 ```
 
 Let's describe Postgres object `quick-postgres`
@@ -160,9 +160,9 @@ Let's describe Postgres object `quick-postgres`
 $ kubedb describe pg -n demo quick-postgres
 Name:               quick-postgres
 Namespace:          demo
-CreationTimestamp:  Mon, 03 Sep 2018 17:25:36 +0600
+CreationTimestamp:  Thu, 07 Feb 2019 17:03:11 +0600
 Labels:             <none>
-Annotations:        kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"kubedb.com/v1alpha1","kind":"Postgres","metadata":{"annotations":{},"name":"quick-postgres","namespace":"demo"},"spec":{"doNotPause":tru...
+Annotations:        <none>
 Replicas:           1  total
 Status:             Running
   StorageType:      Durable
@@ -173,11 +173,11 @@ Volume:
 
 StatefulSet:          
   Name:               quick-postgres
-  CreationTimestamp:  Mon, 03 Sep 2018 17:25:40 +0600
+  CreationTimestamp:  Thu, 07 Feb 2019 17:03:11 +0600
   Labels:               kubedb.com/kind=Postgres
                         kubedb.com/name=quick-postgres
   Annotations:        <none>
-  Replicas:           824640348832 desired | 1 total
+  Replicas:           824641589664 desired | 1 total
   Pods Status:        1 Running / 0 Waiting / 0 Succeeded / 0 Failed
 
 Service:        
@@ -186,10 +186,10 @@ Service:
                   kubedb.com/name=quick-postgres
   Annotations:  <none>
   Type:         ClusterIP
-  IP:           10.108.152.107
+  IP:           10.100.86.27
   Port:         api  5432/TCP
   TargetPort:   api/TCP
-  Endpoints:    172.17.0.6:5432
+  Endpoints:    172.17.0.8:5432
 
 Service:        
   Name:         quick-postgres-replicas
@@ -197,10 +197,10 @@ Service:
                   kubedb.com/name=quick-postgres
   Annotations:  <none>
   Type:         ClusterIP
-  IP:           10.105.175.166
+  IP:           10.103.133.93
   Port:         api  5432/TCP
   TargetPort:   api/TCP
-  Endpoints:    172.17.0.6:5432
+  Endpoints:    172.17.0.8:5432
 
 Database Secret:
   Name:         quick-postgres-auth
@@ -218,19 +218,20 @@ Data
 Topology:
   Type     Pod               StartTime                      Phase
   ----     ---               ---------                      -----
-  primary  quick-postgres-0  2018-09-03 17:25:43 +0600 +06  Running
+  primary  quick-postgres-0  2019-02-07 17:03:12 +0600 +06  Running
 
 No Snapshots.
 
 Events:
-  Type    Reason      Age   From               Message
-  ----    ------      ----  ----               -------
-  Normal  Successful  2m    Postgres operator  Successfully created Service
-  Normal  Successful  2m    Postgres operator  Successfully created Service
-  Normal  Successful  1m    Postgres operator  Successfully created StatefulSet
-  Normal  Successful  1m    Postgres operator  Successfully created Postgres
-  Normal  Successful  1m    Postgres operator  Successfully patched StatefulSet
-  Normal  Successful  1m    Postgres operator  Successfully patched Postgres
+  Type    Reason      Age   From             Message
+  ----    ------      ----  ----             -------
+  Normal  Successful  51s   KubeDB operator  Successfully created Service
+  Normal  Successful  51s   KubeDB operator  Successfully created Service
+  Normal  Successful  25s   KubeDB operator  Successfully created StatefulSet
+  Normal  Successful  25s   KubeDB operator  Successfully created Postgres
+  Normal  Successful  25s   KubeDB operator  Successfully created appbinding
+  Normal  Successful  25s   KubeDB operator  Successfully patched StatefulSet
+  Normal  Successful  25s   KubeDB operator  Successfully patched Postgres
 ```
 
 KubeDB has created two services for the Postgres object.
@@ -243,6 +244,7 @@ quick-postgres-replicas   ClusterIP   10.105.175.166   <none>        5432/TCP   
 ```
 
 Here,
+
 - Service *`quick-postgres`* targets only one Pod which is acting as *primary* server
 - Service *`quick-postgres-replicas`* targets all Pods created by StatefulSet
 
@@ -358,25 +360,31 @@ $ kubectl get drmn -n demo quick-postgres -o yaml
 apiVersion: kubedb.com/v1alpha1
 kind: DormantDatabase
 metadata:
-  creationTimestamp: 2018-09-03T12:13:25Z
+  creationTimestamp: "2019-02-07T11:05:44Z"
+  finalizers:
+  - kubedb.com
   generation: 1
   labels:
     kubedb.com/kind: Postgres
   name: quick-postgres
   namespace: demo
-  ...
+  resourceVersion: "39020"
+  selfLink: /apis/kubedb.com/v1alpha1/namespaces/demo/dormantdatabases/quick-postgres
+  uid: 50a9c42e-2ac8-11e9-9d44-080027154f61
 spec:
   origin:
     metadata:
-      annotations:
-        ...
-      creationTimestamp: 2018-09-03T11:25:36Z
+      creationTimestamp: "2019-02-07T11:03:11Z"
       name: quick-postgres
       namespace: demo
     spec:
       postgres:
         databaseSecret:
           secretName: quick-postgres-auth
+        leaderElection:
+          leaseDurationSeconds: 15
+          renewDeadlineSeconds: 10
+          retryPeriodSeconds: 2
         podTemplate:
           controller: {}
           metadata: {}
@@ -389,16 +397,19 @@ spec:
         storage:
           accessModes:
           - ReadWriteOnce
+          dataSource: null
           resources:
             requests:
               storage: 1Gi
           storageClassName: standard
         storageType: Durable
-        version: "10.2-v2"
+        terminationPolicy: Pause
+        updateStrategy:
+          type: RollingUpdate
+        version: 10.2-v2
 status:
-  observedGeneration: 1
-  observedGenerationHash: "8378748355133368567"
-  pausingTime: 2018-09-03T12:13:37Z
+  observedGeneration: 1$8378748355133368567
+  pausingTime: "2019-02-07T11:05:56Z"
   phase: Paused
 ```
 
@@ -416,7 +427,7 @@ In this tutorial, the DormantDatabase `quick-postgres` can be resumed by creatin
 Let's create the original Postgres object,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/kubectl apply -f ./quickstart/quick-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/quick-postgres.yaml
 postgres.kubedb.com/quick-postgres created
 ```
 
@@ -455,10 +466,10 @@ dormantdatabase.kubedb.com "quick-postgres" deleted
 To cleanup the Kubernetes resources created by this tutorial, run:
 
 ```console
-$ kubectl patch -n demo pg/quick-postgres -p '{"spec":{"terminationPolicy":"WipeOut"}}' --type="merge"
-$ kubectl delete -n demo pg/quick-postgres
+kubectl patch -n demo pg/quick-postgres -p '{"spec":{"terminationPolicy":"WipeOut"}}' --type="merge"
+kubectl delete -n demo pg/quick-postgres
 
-$ kubectl delete ns demo
+kubectl delete ns demo
 ```
 
 ## Tips for Testing
