@@ -90,7 +90,7 @@ Let's create a Postgres crd with backupSchedule,
 
 ```console
 $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/snapshot/scheduled-pg.yaml
-postgres "scheduled-pg" created
+postgres.kubedb.com/scheduled-pg created
 ```
 
 When PostgreSQL is successfully created, KubeDB operator creates a Snapshot object immediately and registers to create a new Snapshot object on each tick of the cron expression.
@@ -125,6 +125,7 @@ Edit the Postgres `scheduled-pg` to add following `spec.backupSchedule` section.
 
 ```console
 $ kubectl edit pg scheduled-pg -n demo
+spec:
   backupSchedule:
     cronExpression: "@every 2m"
     storageSecretName: gcs-secret
@@ -286,11 +287,11 @@ spec:
 To cleanup the Kubernetes resources created by this tutorial, run:
 
 ```console
-$ kubectl patch -n demo pg/scheduled-pg -p '{"spec":{terminationPolicy":"WipeOut"}}' --type="merge"
-$ kubectl delete -n demo pg/scheduled-pg
+kubectl patch -n demo pg/scheduled-pg -p '{"spec":{terminationPolicy":"WipeOut"}}' --type="merge"
+kubectl delete -n demo pg/scheduled-pg
 
-$ kubectl delete -n demo secret/gcs-secret
-$ kubectl delete ns demo
+kubectl delete -n demo secret/gcs-secret
+kubectl delete ns demo
 ```
 
 ## Next Steps

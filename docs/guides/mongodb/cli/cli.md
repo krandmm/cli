@@ -305,11 +305,11 @@ Lets edit an existing running MongoDB object to setup [Scheduled Backup](/docs/g
 $ kubedb edit mg mongodb-demo
 
 # Add following under Spec to configure periodic backups
-# backupSchedule:
-#   cronExpression: '@every 1m'
-#   storageSecretName: mg-snap-secret
-#   gcs:
-#     bucket: bucket-name
+#  backupSchedule:
+#    cronExpression: '@every 1m'
+#    storageSecretName: mg-snap-secret
+#    gcs:
+#      bucket: bucket-name
 
 mongodb "mongodb-demo" edited
 ```

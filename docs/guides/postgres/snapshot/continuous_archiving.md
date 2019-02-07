@@ -61,9 +61,9 @@ Here,
 
 - `spec.archiver.storage` specifies storage information that will be used by `wal-g`
   - `storage.storageSecretName` points to the Secret containing the credentials for cloud storage destination.
-  - `storage.s3` points to s3 storage to store continuous archiving data.
+  - `storage.s3` points to s3 storage configuration.
   - `storage.s3.bucket` points to the bucket name used to store continuous archiving data.
-  - `storage.gcs` points to GCS storage to store continuous archiving data.
+  - `storage.gcs` points to GCS storage configuration.
   - `storage.gcs.bucket` points to the bucket name used to store continuous archiving data.
 
 User can use either s3 or gcs. In this tutorial, s3 is used for wal-g archiving. `gcs` is similar to this tutorial. Follow [this link](/docs/concepts/snapshot/#google-cloud-storage-gcs) to know how to create secret for `gcs` storage. 

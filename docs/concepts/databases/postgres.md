@@ -110,10 +110,10 @@ spec:
 
 `spec.version` is a required field that specifies the name of the [PostgresVersion](/docs/concepts/catalog/postgres.md) crd where the docker images are specified. Currently, when you install KubeDB, it creates the following `PostgresVersion` crd,
 
- - `9.6.7-v2`,`9.6.7-v1`, `9.6.7`, `9.6-v2`, `9.6`
- - `10.2-v2`,`10.2-v2`, `10.2`
- - `10.6`
- - `11.1`
+- `9.6.7-v2`,`9.6.7-v1`, `9.6.7`, `9.6-v2`, `9.6`
+- `10.2-v2`,`10.2-v1`, `10.2`
+- `10.6`
+- `11.1`
 
 ### spec.replicas
 
@@ -129,14 +129,17 @@ spec:
 
 ### spec.archiver
 
-`spec.archiver` is an optional field which specifies storage information that will be used by `wal-g`.
+`spec.archiver` is an optional field which specifies storage information that will be used by `wal-g`. User can use either s3 or gcs.
 
- - `spec.archiver.storage.storageSecretName` points to the Secret containing the credentials for cloud storage destination.
- - `spec.archiver.storage.s3.bucket` points to the bucket name used to store continuous archiving data.
+- `storage.storageSecretName` points to the Secret containing the credentials for cloud storage destination.
+- `storage.s3` points to s3 storage configuration.
+- `storage.s3.bucket` points to the bucket name used to store continuous archiving data.
+- `storage.gcs` points to GCS storage configuration.
+- `storage.gcs.bucket` points to the bucket name used to store continuous archiving data.
 
 Continuous archiving data will be stored in a folder called `{bucket}/{prefix}/kubedb/{namespace}/{postgres-name}/archive/`.
 
-To know more about how to configure Postgres to archive WAL data continuously in AWS S3 bucket, please visit [here](/docs/guides/postgres/snapshot/continuous_archiving.md).
+Follow [this link](/docs/concepts/snapshot/#google-cloud-storage-gcs) to know how to create secret for S3 or GCS. To know more about how to configure Postgres to archive WAL data continuously in AWS S3 bucket, please visit [here](/docs/guides/postgres/snapshot/continuous_archiving.md).
 
 ### spec.databaseSecret
 
@@ -377,7 +380,6 @@ At least one of the following was changed:
     spec.storage
     spec.podTemplate.spec.nodeSelector
     spec.init
-    spec.podTemplate.spec.env
 ```
 
 #### spec.podTemplate.spec.imagePullSecrets
