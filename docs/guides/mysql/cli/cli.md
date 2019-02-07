@@ -291,7 +291,6 @@ Various fields of a KubeDB object can't be edited using `edit` command. The foll
 - kind
 - metadata.name
 - metadata.namespace
-- status
 
 If StatefulSets exists for a MySQL database, following fields can't be modified as well.
 
@@ -300,7 +299,6 @@ If StatefulSets exists for a MySQL database, following fields can't be modified 
 - spec.storageType
 - spec.storage
 - spec.podTemplate.spec.nodeSelector
-- spec.podTemplate.spec.env
 
 For DormantDatabase, `spec.origin` can't be edited using `kubedb edit`
 
@@ -341,6 +339,9 @@ To learn about various options of `delete` command, please visit [here](/docs/re
 You can use Kubectl with KubeDB objects like any other CRDs. Below are some common examples of using Kubectl with KubeDB objects.
 
 ```console
+# Create objects
+$ kubectl create -f
+
 # List objects
 $ kubectl get mysql
 $ kubectl get mysql.kubedb.com
