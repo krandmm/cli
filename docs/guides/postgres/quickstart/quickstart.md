@@ -30,10 +30,6 @@ To keep things isolated, this tutorial uses a separate namespace called `demo` t
 ```console
 $ kubectl create ns demo
 namespace/demo created
-
-$ kubectl get ns demo
-NAME    STATUS  AGE
-demo    Active  5s
 ```
 
 > Note: YAML files used in this tutorial are stored in [docs/examples/postgres](https://github.com/kubedb/cli/tree/master/docs/examples/postgres) folder in GitHub repository [kubedb/cli](https://github.com/kubedb/cli).
@@ -88,17 +84,22 @@ When you have installed KubeDB, it has created `PostgresVersion` crd for all sup
 ```console
 $ kubectl get postgresversions
 NAME       VERSION   DB_IMAGE                   DEPRECATED   AGE
-10.2       10.2      kubedb/postgres:10.2       true         16s
-10.2-v1    10.2      kubedb/postgres:10.2-v1                 16s
-9.6        9.6       kubedb/postgres:9.6        true         19s
-9.6-v2     9.6       kubedb/postgres:9.6-v2                  18s
-9.6.7      9.6.7     kubedb/postgres:9.6.7      true         18s
-9.6.7-v1   9.6.7     kubedb/postgres:9.6.7-v1                17s
+10.2       10.2      kubedb/postgres:10.2       true         1h
+10.2-v2    10.2      kubedb/postgres:10.2-v2    true         1h
+10.2-v2    10.2      kubedb/postgres:10.2-v3                 1h
+10.6       10.6      kubedb/postgres:10.6                    1h
+11.1       11.1      kubedb/postgres:11.1                    1h
+9.6        9.6       kubedb/postgres:9.6        true         1h
+9.6-v1     9.6       kubedb/postgres:9.6-v2     true         1h
+9.6-v2     9.6       kubedb/postgres:9.6-v3                  2h
+9.6.7      9.6.7     kubedb/postgres:9.6.7      true         1h
+9.6.7-v1   9.6.7     kubedb/postgres:9.6.7-v2   true         1h
+9.6.7-v2   9.6.7     kubedb/postgres:9.6.7-v3                1h
 ```
 
 Notice the `DEPRECATED` column. Here, `true` means that this PostgresVersion is deprecated for current KubeDB version. KubeDB will not work for deprecated PostgresVersion.
 
-In this tutorial, we will use `10.2-v1` PostgresVersion crd to create PostgreSQL database. To know more about what is `PostgresVersion` crd and why there is `10.2` and `10.2-v1` variation, please visit [here](/docs/concepts/catalog/postgres.md). You can also see supported PostgresVersion [here](/docs/guides/postgres/README.md#supported-postgresversion-crd).
+In this tutorial, we will use `10.2-v2` PostgresVersion crd to create PostgreSQL database. To know more about what is `PostgresVersion` crd and why there is `10.2` and `10.2-v2` variation, please visit [here](/docs/concepts/catalog/postgres.md). You can also see supported PostgresVersion [here](/docs/guides/postgres/README.md#supported-postgresversion-crd).
 
 ## Create a PostgreSQL database
 
@@ -113,7 +114,7 @@ metadata:
   name: quick-postgres
   namespace: demo
 spec:
-  version: "10.2-v1"
+  version: "10.2-v2"
   storageType: Durable
   storage:
     storageClassName: "standard"
@@ -150,7 +151,7 @@ KubeDB operator sets the `status.phase` to `Running` once the database is succes
 ```console
 $  kubectl get pg -n demo quick-postgres -o wide
 NAME             VERSION   STATUS    AGE
-quick-postgres   10.2-v1      Running   1m
+quick-postgres   10.2-v2      Running   1m
 ```
 
 Let's describe Postgres object `quick-postgres`
@@ -393,7 +394,7 @@ spec:
               storage: 1Gi
           storageClassName: standard
         storageType: Durable
-        version: "10.2-v1"
+        version: "10.2-v2"
 status:
   observedGeneration: 1
   observedGenerationHash: "8378748355133368567"

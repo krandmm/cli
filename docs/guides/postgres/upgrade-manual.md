@@ -345,14 +345,14 @@ Now, Before updating CRD, find Available PostgresVersion.
 $ kubectl get postgresversions
 NAME       VERSION   DB_IMAGE                   DEPRECATED   AGE
 10.2       10.2      kubedb/postgres:10.2       true         1h
-10.2-v1    10.2      kubedb/postgres:10.2-v2                 1h
+10.2-v2    10.2      kubedb/postgres:10.2-v2                 1h
 9.6        9.6       kubedb/postgres:9.6        true         1h
 9.6-v2     9.6       kubedb/postgres:9.6-v2                  1h
 9.6.7      9.6.7     kubedb/postgres:9.6.7      true         1h
 9.6.7-v1   9.6.7     kubedb/postgres:9.6.7-v2                1h
 ```
 
-Notice the `DEPRECATED` column. Here, `true` means that this PostgresVersion is deprecated for current KubeDB version. KubeDB will not work for deprecated PostgresVersion. To know more about what is `PostgresVersion` crd and why there is `10.2` and `10.2-v1` variation, please visit [here](/docs/concepts/catalog/postgres.md).
+Notice the `DEPRECATED` column. Here, `true` means that this PostgresVersion is deprecated for current KubeDB version. KubeDB will not work for deprecated PostgresVersion. To know more about what is `PostgresVersion` crd and why there is `10.2` and `10.2-v2` variation, please visit [here](/docs/concepts/catalog/postgres.md).
 
 Now, Update the CRD and set `Spec.version` to `9.6-v2`.
 

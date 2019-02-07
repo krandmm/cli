@@ -110,8 +110,10 @@ spec:
 
 `spec.version` is a required field that specifies the name of the [PostgresVersion](/docs/concepts/catalog/postgres.md) crd where the docker images are specified. Currently, when you install KubeDB, it creates the following `PostgresVersion` crd,
 
- - `9.6.7-v1`, `9.6.7`, `9.6-v2`, `9.6`
- - `10.2-v1`, `10.2`
+ - `9.6.7-v2`,`9.6.7-v1`, `9.6.7`, `9.6-v2`, `9.6`
+ - `10.2-v2`,`10.2-v2`, `10.2`
+ - `10.6`
+ - `11.1`
 
 ### spec.replicas
 
