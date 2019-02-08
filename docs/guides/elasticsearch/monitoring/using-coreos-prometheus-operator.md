@@ -124,7 +124,7 @@ Here,
 Let's create the Elasticsearch object that we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/monitoring/coreos-prom-es.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/monitoring/coreos-prom-es.yaml
 elasticsearch.kubedb.com/coreos-prom-es created
 ```
 

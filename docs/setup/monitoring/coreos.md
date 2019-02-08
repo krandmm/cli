@@ -184,7 +184,7 @@ Here, `spec.serviceMonitorSelector` is used to select the `ServiceMonitor` crd t
 Let's create the `Prometheus` object we have shown above,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/monitoring/operator/prometheus.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/monitoring/operator/prometheus.yaml
 prometheus.monitoring.coreos.com/prometheus created
 ```
 

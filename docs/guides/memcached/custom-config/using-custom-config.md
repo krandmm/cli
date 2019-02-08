@@ -119,7 +119,7 @@ metadata:
 Now, create Memcached crd specifying `spec.configSource` field.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/memcached/custom-config/mc-custom.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/memcached/custom-config/mc-custom.yaml
 memcached.kubedb.com/custom-memcached created
 ```
 

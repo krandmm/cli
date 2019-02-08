@@ -121,7 +121,7 @@ spec:
 Now run the command to deploy this `Memcached` object:
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/memcached/private-registry/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/memcached/private-registry/demo-2.yaml
 memcached.kubedb.com/memcd-pvt-reg created
 ```
 

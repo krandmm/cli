@@ -69,7 +69,7 @@ Here,
 Let's create the PostgreSQL crd we have shown above.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/monitoring/builtin-prom-postgres.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/monitoring/builtin-prom-postgres.yaml
 postgres.kubedb.com/builtin-prom-postgres created
 ```
 
@@ -275,7 +275,7 @@ data:
 Let's create above `ConfigMap`,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
 configmap/prometheus-config created
 ```
 

@@ -104,7 +104,7 @@ spec:
 ```
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/configuration/demo-1.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/configuration/demo-1.yaml
 mongodb.kubedb.com/mgo-custom-config created
 ```
 

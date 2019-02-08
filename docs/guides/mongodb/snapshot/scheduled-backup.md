@@ -95,7 +95,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/snapshot/demo-4.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-4.yaml
 mongodb.kubedb.com/mgo-scheduled created
 ```
 

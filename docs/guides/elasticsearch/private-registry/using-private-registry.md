@@ -138,7 +138,7 @@ spec:
 Now run the command to deploy this Elasticsearch object:
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/private-registry/private-registry.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/private-registry/private-registry.yaml
 elasticsearch.kubedb.com/pvt-reg-elasticsearch created
 ```
 

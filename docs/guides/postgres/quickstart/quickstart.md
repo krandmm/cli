@@ -43,7 +43,7 @@ This tutorial will also use a pgAdmin to connect and test PostgreSQL database, o
 Run the following command to install pgAdmin,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/quickstart/pgadmin.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/quickstart/pgadmin.yaml
 deployment.apps/pgadmin created
 service/pgadmin created
 

@@ -111,7 +111,7 @@ metadata:
 Now, create an Elasticsearch crd without topology,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/custom-config/es-custom.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/custom-config/es-custom.yaml
 elasticsearch.kubedb.com/custom-elasticsearch created
 ```
 

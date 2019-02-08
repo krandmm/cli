@@ -124,7 +124,7 @@ Here,
 Let's create the Redis object that we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/monitoring/coreos-prom-redis.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/monitoring/coreos-prom-redis.yaml
 redis.kubedb.com/coreos-prom-redis created
 ```
 

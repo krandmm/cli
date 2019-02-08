@@ -84,7 +84,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/quickstart/demo-1.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/quickstart/demo-1.yaml
 redis.kubedb.com/redis-quickstart created
 ```
 
@@ -328,7 +328,7 @@ In this tutorial, the dormant database can be resumed by creating original `Redi
 The below command will resume the DormantDatabase `redis-quickstart`.
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/redis/quickstart/demo-1.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/redis/quickstart/demo-1.yaml
 redis.kubedb.com/redis-quickstart created
 ```
 

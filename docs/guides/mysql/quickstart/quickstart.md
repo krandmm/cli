@@ -41,7 +41,7 @@ This tutorial will show you how to use KubeDB to run a MySQL database.
   $ kubectl create ns demo
   namespace/demo created
   
-  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-1.yaml
+  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-1.yaml
   deployment.extensions/myadmin created
   service/myadmin created
   
@@ -112,7 +112,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-2.yaml
 mysql.kubedb.com/mysql-quickstart created
 ```
 
@@ -379,7 +379,7 @@ In this tutorial, the dormant database can be resumed by creating original `MySQ
 The below command will resume the DormantDatabase `mysql-quickstart` that was created before.
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-2.yaml
 mysql.kubedb.com/mysql-quickstart created
 ```
 

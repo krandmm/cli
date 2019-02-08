@@ -38,7 +38,7 @@ This tutorial will show you how to take snapshots of a KubeDB managed MongoDB da
   $ kubectl create ns demo
   namespace/demo created
 
-  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/snapshot/demo-1.yaml
+  $ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-1.yaml
   mongodb.kubedb.com/mgo-infant created
   ```
 
@@ -97,7 +97,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/snapshot/demo-2.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-2.yaml
 snapshot.kubedb.com/snapshot-infant created
 
 $ kubedb get snap -n demo
@@ -255,7 +255,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mongodb/snapshot/demo-3.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mongodb/snapshot/demo-3.yaml
 mongodb.kubedb.com/mgo-recovered created
 ```
 

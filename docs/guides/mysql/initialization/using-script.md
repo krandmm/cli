@@ -31,7 +31,7 @@ In this tutorial we will use .sql script stored in GitHub repository [kubedb/mys
   $ kubectl create ns demo
   namespace/demo created
   
-  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/quickstart/demo-1.yaml
+  $ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/quickstart/demo-1.yaml
   deployment.extensions/myadmin created
   service/myadmin created
   
@@ -99,7 +99,7 @@ spec:
 ```
 
 ```console
-$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/Initialization/demo-1.yaml
+$ kubedb create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/Initialization/demo-1.yaml
 mysql.kubedb.com/mysql-init-script created
 ```
 

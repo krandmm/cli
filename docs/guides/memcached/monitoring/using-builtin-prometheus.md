@@ -72,7 +72,7 @@ Here,
 Let's create the Memcached crd we have shown above.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/memcached/monitoring/builtin-prom-memcd.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/memcached/monitoring/builtin-prom-memcd.yaml
 memcached.kubedb.com/builtin-prom-memcd created
 ```
 
@@ -268,7 +268,7 @@ data:
 Let's create above `ConfigMap`,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
 configmap/prometheus-config created
 ```
 

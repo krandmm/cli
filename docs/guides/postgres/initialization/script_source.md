@@ -85,7 +85,7 @@ VolumeSource provided in `init.scriptSource` will be mounted in Pod and will be 
 Now, let's create the Postgres crd which YAML we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/initialization/script-postgres.yaml 
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/initialization/script-postgres.yaml 
 postgres.kubedb.com/script-postgres created
 ```
 

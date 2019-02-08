@@ -68,7 +68,7 @@ Here,
 Let's create the Elasticsearch crd we have shown above.
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/monitoring/builtin-prom-es.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/monitoring/builtin-prom-es.yaml
 elasticsearch.kubedb.com/builtin-prom-es created
 ```
 
@@ -274,7 +274,7 @@ data:
 Let's create above `ConfigMap`,
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/monitoring/builtin-prometheus/prom-config.yaml
 configmap/prometheus-config created
 ```
 

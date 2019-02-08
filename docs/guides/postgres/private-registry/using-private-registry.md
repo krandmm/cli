@@ -145,7 +145,7 @@ spec:
 Now run the command to create this Postgres object:
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/postgres/private-registry/pvt-reg-postgres.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/postgres/private-registry/pvt-reg-postgres.yaml
 postgres.kubedb.com/pvt-reg-postgres created
 ```
 

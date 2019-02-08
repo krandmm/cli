@@ -92,7 +92,7 @@ instant-snapshot   infant-elasticsearch   Succeeded   51m
 Now, create the Elasticsearch object.
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/elasticsearch/initialization/recovered-es.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/elasticsearch/initialization/recovered-es.yaml
 elasticsearch.kubedb.com/recovered-es created
 ```
 

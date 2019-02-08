@@ -125,7 +125,7 @@ Here,
 Let's create the MySQL object that we have shown above,
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/doc-upd-mrf/docs/examples/mysql/monitoring/coreos-prom-mysql.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubedb/cli/0.9.0/docs/examples/mysql/monitoring/coreos-prom-mysql.yaml
 mysql.kubedb.com/coreos-prom-mysql created
 ```
 
