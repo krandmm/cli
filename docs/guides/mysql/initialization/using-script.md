@@ -256,7 +256,7 @@ $ kubectl get secrets -n demo mysql-init-script-auth -o jsonpath='{.data.\passwo
 ```
 
 ---
-Note: In MySQL:8.0-v1 (ie, 8.0.14), connection to phpMyAdmin may give error as it is using `caching_sha2_password` and `sha256_password` authentication plugins over `mysql_native_password`. If the error happens do the following for work around. But, It's not recommended to change authentication plugins. See [here](https://stackoverflow.com/questions/49948350/phpmyadmin-on-mysql-8-0) for alternative solutions.
+Note: In MySQL:8.0-v2 (ie, 8.0.14), connection to phpMyAdmin may give error as it is using `caching_sha2_password` and `sha256_password` authentication plugins over `mysql_native_password`. If the error happens do the following for work around. But, It's not recommended to change authentication plugins. See [here](https://stackoverflow.com/questions/49948350/phpmyadmin-on-mysql-8-0) for alternative solutions.
 
 ```console
 kubectl exec -it -n demo mysql-quickstart-0 -- mysql -u root --password=1Pc7bwSygrv1MX1Q -e "ALTER USER root IDENTIFIED WITH mysql_native_password BY '1Pc7bwSygrv1MX1Q';"

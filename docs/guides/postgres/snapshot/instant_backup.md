@@ -308,7 +308,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb-dev
+    bucket: kubedb-qa
   podVolumeClaimSpec:
     storageClassName: "standard"
     accessModes:
@@ -334,7 +334,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb-dev
+    bucket: kubedb-qa
   podTemplate:
     spec:
       resources:
@@ -362,7 +362,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb-dev
+    bucket: kubedb-qa
   podTemplate:
     annotations:
       passMe: ToBackupJobPod
@@ -387,7 +387,7 @@ spec:
   databaseName: script-postgres
   storageSecretName: gcs-secret
   gcs:
-    bucket: kubedb-dev
+    bucket: kubedb-qa
   podTemplate:
     spec:
       args:
